@@ -7,7 +7,6 @@ exports.getUsers = wrapAsync(async (req, res) => {
     const { apiKey } = req.query;
     if (apiKey && apiKey == "superSecretWeatherWidget") {
         const users = await User.find({});
-        console.log(users);
         res.json({
             success: true,
             message: "get all users",
@@ -37,7 +36,6 @@ exports.createUser = wrapAsync(async (req, res) => {
             res.json({ success: true, message: "Registration successful", user });
         });
     });
-
     // end
 })
 
