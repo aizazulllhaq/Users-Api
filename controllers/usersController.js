@@ -27,7 +27,8 @@ exports.createUser = wrapAsync(async (req, res) => {
     // start
     console.log(req.body);
     // Register a new user
-    User.register({ username: req.body.username, email: req.body.email }, req.body.password, function (err, user) {
+    const { username , email , password } = req.body;
+    User.register({ username, email }, password, function (err, user) {
         if (err) {
             return res.status(500).json({ success: false, message: "Registration failed", error: err.message });
         }
